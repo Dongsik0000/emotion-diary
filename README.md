@@ -1,16 +1,49 @@
-# React + Vite
+# 감정 일기장 (Emotion Diary)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React와 Vite로 제작한 감정 기록 일기장 웹 애플리케이션입니다.  
+날짜별로 일기를 작성하고, 그날의 감정을 5단계로 기록할 수 있습니다.
 
-Currently, two official plugins are available:
+## 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **일기 작성 / 수정 / 삭제** — 날짜, 감정, 내용을 입력하여 일기를 관리합니다.
+- **감정 선택** — 5가지 감정 이미지 중 하나를 선택하여 그날의 감정을 기록합니다.
+- **월별 일기 목록** — 홈 화면에서 월 단위로 일기 목록을 조회합니다.
+- **데이터 영구 저장** — `localStorage`를 사용하여 브라우저를 닫아도 데이터가 유지됩니다.
 
-## React Compiler
+## 기술 스택
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** — UI 렌더링
+- **Vite** — 빌드 도구 및 개발 서버
+- **React Router DOM v7** — 페이지 라우팅
+- **Context API + useReducer** — 전역 상태 관리
+- **localStorage** — 클라이언트 측 데이터 영속화
 
-## Expanding the ESLint configuration
+## 페이지 구조
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| 경로 | 페이지 | 설명 |
+|------|--------|------|
+| `/` | Home | 월별 일기 목록 조회 |
+| `/new` | New | 새 일기 작성 |
+| `/diary/:id` | Diary | 일기 상세 조회 |
+| `/edit/:id` | Edit | 일기 수정 |
+| `*` | Notfound | 404 페이지 |
+
+## 시작하기
+
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 프로덕션 빌드
+npm run build
+
+# 빌드 결과물 미리보기
+npm run preview
+```
+
+## 배포
+
+이 프로젝트는 [Vercel](https://vercel.com)을 통해 배포되었습니다.
